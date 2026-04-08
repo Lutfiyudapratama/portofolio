@@ -8,18 +8,19 @@ import picturet6 from '../assets/toko-listrik/Toko-Listrik6.png'
 import picturet7 from '../assets/toko-listrik/Toko-Listrik7.png'
 import picturet8 from '../assets/toko-listrik/Toko-Listrik8.png'
 import picturet9 from '../assets/toko-listrik/Toko-Listrik9.png'
-import picturer1 from '../assets/react marketplace/reactmarketplace.png'
-import picturef1 from '../assets/ftrans/ftrans.png'
-import picturecs1 from '../assets/cookiess store/cs1.png'
-import picturecs2 from '../assets/cookiess store/cs2.png'
-import picturecs3 from '../assets/cookiess store/cs3.png'
 import pictureex1 from '../assets/expose/expose1.png'
 import pictureex2 from '../assets/expose/expose2.png'
 import pictureex3 from '../assets/expose/expose3.png'
 import pictureex4 from '../assets/expose/expose4.png'
 import pictureex5 from '../assets/expose/expose5.png'
 import pictureex6 from '../assets/expose/expose6.png'
-
+import picturef1 from '../assets/financeapp/f1.jpg'
+import picturef2 from '../assets/financeapp/f2.jpg'
+import picturef3 from '../assets/financeapp/f3.jpg'
+import picturef4 from '../assets/financeapp/f4.jpg'
+import picturef5 from '../assets/financeapp/f5.png'
+import picturef6 from '../assets/financeapp/f6.png'
+import picturef7 from '../assets/financeapp/f7.png'
 
 
 function Project() {
@@ -33,7 +34,7 @@ function Project() {
       title: "Website Toko Listrik",
       desc: "Website ini di buatuntuk memudahkan pelanggan untuk memesan produk dari toko electronic",
       tags: ["laravel", "bootstrap", "mysql"],
-      images: [picturetl, picturet2, picturet3, picturet4, picturet5, picturet6, picturet7, picturet8, picturet9],
+      images: [picturetl, picturet2, picturet3, picturet6, picturet5, picturet4, picturet9, picturet7, picturet8],
       year: "2025",
     },
     {
@@ -44,29 +45,14 @@ function Project() {
       year: "2025",
     },
     {
-      title: "Website react marketplace",
-      desc: "Project latihan membuat website marketplace menggunakan react js, dengan fitur seperti menampilkan produk, menambahkan produk ke keranjang, dan melakukan checkout.",
-      tags: ["react"],
-      images: [picturer1],
-      year: "2024", 
+      title: "Website Catatan Keuangan",
+      desc: "Website catatan keuangan ini dibuat untuk membantu pengguna dalam mengelola keuangan pribadi mereka dengan fitur seperti pencatatan pemasukan dan pengeluaran, serta visualisasi data keuangan.",
+      tags: ["laravel", "tailwind css", "mysql"],
+      images: [picturef1, picturef2, picturef3, picturef4, picturef6, picturef5, picturef7],
+      year: "2024",
     },
-    {
-      title: "Website implementasi figma ke react",
-      desc: "Project latihan implementasi desain figma ke dalam website menggunakan react js,",
-      tags: ["react"],
-      images: [picturef1],
-      year: "2024", 
-    },
-    {
-      title: "Website cookies store",
-      desc: "Project latihan membuat website toko kue menggunakan react js",
-      tags: ["react"],
-      images: [picturecs1, picturecs2, picturecs3],
-      year: "2024", 
-    }
   ]
 
-  // Close modal on Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') closeModal()
@@ -108,28 +94,71 @@ function Project() {
   }
 
   return (
-    <section id="projects" className="w-full bg-gray-50">
-      <div className="max-w-6xl mx-auto px-8 py-24">
-        <p className="text-xs text-gray-400 uppercase tracking-widest mb-3">Projects</p>
-        <h2 className="text-4xl font-semibold text-gray-900 tracking-tight mb-10">Karya Saya</h2>
+    <section id="projects" className="w-full bg-zinc-900 relative overflow-hidden">
 
-        <div className="flex flex-col divide-y divide-gray-100 border border-gray-200 rounded-xl overflow-hidden max-w-2xl">
+      {/* Subtle texture */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle, #ffffff 1px, transparent 1px)`,
+          backgroundSize: '32px 32px',
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto px-8 py-24 relative z-10">
+
+        {/* Section header */}
+        <div className="flex items-center gap-3 mb-4">
+          <div className="h-px w-8 bg-amber-400" />
+          <p className="text-xs text-amber-400 tracking-widest uppercase font-semibold">Projects</p>
+        </div>
+        <h2
+          className="text-4xl lg:text-5xl font-black text-white tracking-tight mb-3"
+          style={{ fontFamily: "'Georgia', serif" }}
+        >
+          Projects Saya
+        </h2>
+        <p className="text-zinc-500 text-sm mb-12">Klik project untuk melihat detail & screenshot</p>
+
+        {/* Project list */}
+        <div className="flex flex-col gap-px border border-zinc-700/50 rounded-2xl overflow-hidden max-w-3xl bg-zinc-700/20">
           {projects.map((project, index) => (
             <div
               key={index}
               onClick={() => openModal(project)}
-              className="flex justify-between items-start gap-4 bg-white px-5 py-5 hover:bg-gray-50 transition-colors cursor-pointer"
+              className="group flex justify-between items-start gap-6 bg-zinc-900 hover:bg-zinc-800 px-6 py-6 transition-all duration-200 cursor-pointer border-b border-zinc-800 last:border-b-0"
             >
-              <div>
-                <h3 className="text-sm font-medium text-gray-900 mb-1">{project.title}</h3>
-                <p className="text-sm text-gray-400">{project.desc}</p>
+              {/* Number + info */}
+              <div className="flex items-start gap-5 flex-1 min-w-0">
+                <span className="text-xs font-mono text-zinc-600 group-hover:text-amber-400 transition-colors pt-0.5 flex-shrink-0">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-3 mb-1.5">
+                    <h3 className="text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors">
+                      {project.title}
+                    </h3>
+                    <span className="text-xs text-zinc-600 font-mono">{project.year}</span>
+                  </div>
+                  <p className="text-sm text-zinc-500 leading-relaxed line-clamp-2">{project.desc}</p>
+                </div>
               </div>
-              <div className="flex gap-2 flex-shrink-0 flex-wrap justify-end">
-                {project.tags.map((tag, i) => (
-                  <span key={i} className="text-xs text-gray-500 bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-full">
-                    {tag}
-                  </span>
-                ))}
+
+              {/* Tags + arrow */}
+              <div className="flex flex-col items-end gap-3 flex-shrink-0">
+                <div className="flex gap-1.5 flex-wrap justify-end">
+                  {project.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="text-xs text-zinc-400 bg-zinc-800 group-hover:bg-zinc-700 border border-zinc-700 px-2.5 py-0.5 rounded-full transition-colors font-mono"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <span className="text-zinc-600 group-hover:text-amber-400 group-hover:translate-x-1 transition-all duration-200 text-sm">
+                  →
+                </span>
               </div>
             </div>
           ))}
@@ -139,37 +168,36 @@ function Project() {
       {/* ===== MODAL ===== */}
       {isModalOpen && selectedProject && (
         <div
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-6"
           onClick={closeModal}
         >
           {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-md" />
 
           {/* Modal Panel */}
           <div
-            className="relative bg-white w-full sm:max-w-2xl sm:rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[95dvh] sm:max-h-[90vh]"
+            className="relative bg-zinc-900 border border-zinc-700 w-full sm:max-w-2xl sm:rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[95dvh] sm:max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
 
             {/* ── Image Carousel ── */}
-            <div className="relative w-full aspect-video bg-gray-900 flex-shrink-0 overflow-hidden">
+            <div className="relative w-full aspect-video bg-zinc-950 flex-shrink-0 overflow-hidden">
               <img
                 key={currentImageIndex}
                 src={selectedProject.images[currentImageIndex]}
                 alt={`${selectedProject.title} - ${currentImageIndex + 1}`}
                 className="w-full h-full object-cover transition-opacity duration-300"
-                style={{ opacity: isAnimating ? 0.4 : 1 }}
+                style={{ opacity: isAnimating ? 0.3 : 1 }}
               />
 
-              {/* Gradient overlay bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-zinc-950/30 pointer-events-none" />
 
               {/* Close button */}
               <button
                 onClick={closeModal}
-                className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur-sm transition-all"
+                className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-zinc-900/70 hover:bg-zinc-800 text-white backdrop-blur-sm transition-all border border-zinc-700"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </button>
@@ -179,17 +207,17 @@ function Project() {
                 <>
                   <button
                     onClick={prevImage}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur-sm transition-all active:scale-95"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-zinc-900/70 hover:bg-zinc-800 text-white backdrop-blur-sm transition-all border border-zinc-700 active:scale-95"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="15 18 9 12 15 6" />
                     </svg>
                   </button>
                   <button
                     onClick={nextImage}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur-sm transition-all active:scale-95"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-zinc-900/70 hover:bg-zinc-800 text-white backdrop-blur-sm transition-all border border-zinc-700 active:scale-95"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="9 18 15 12 9 6" />
                     </svg>
                   </button>
@@ -198,7 +226,7 @@ function Project() {
 
               {/* Counter pill */}
               {selectedProject.images.length > 1 && (
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full font-medium tracking-wide">
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-zinc-900/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full font-mono border border-zinc-700 tracking-widest">
                   {currentImageIndex + 1} / {selectedProject.images.length}
                 </div>
               )}
@@ -213,8 +241,8 @@ function Project() {
                     onClick={() => changeImage(i)}
                     className={`rounded-full transition-all duration-200 ${
                       i === currentImageIndex
-                        ? 'w-5 h-1.5 bg-gray-900'
-                        : 'w-1.5 h-1.5 bg-gray-300 hover:bg-gray-400'
+                        ? 'w-5 h-1.5 bg-amber-400'
+                        : 'w-1.5 h-1.5 bg-zinc-600 hover:bg-zinc-400'
                     }`}
                   />
                 ))}
@@ -226,29 +254,33 @@ function Project() {
               {/* Header row */}
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 leading-tight">{selectedProject.title}</h3>
+                  <h3
+                    className="text-lg font-bold text-white leading-tight"
+                    style={{ fontFamily: "'Georgia', serif" }}
+                  >
+                    {selectedProject.title}
+                  </h3>
                   {selectedProject.year && (
-                    <p className="text-xs text-gray-400 mt-0.5">{selectedProject.year}</p>
+                    <p className="text-xs text-zinc-500 mt-0.5 font-mono">{selectedProject.year}</p>
                   )}
                 </div>
                 {selectedProject.status && (
-                  <span className="flex-shrink-0 flex items-center gap-1.5 text-xs font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+                  <span className="flex-shrink-0 flex items-center gap-1.5 text-xs font-medium text-emerald-400 bg-emerald-950 border border-emerald-800 px-2.5 py-1 rounded-full">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
                     {selectedProject.status}
                   </span>
                 )}
               </div>
 
-              {/* Divider */}
-              <div className="border-t border-gray-100 mb-3" />
+              <div className="border-t border-zinc-800 mb-4" />
 
               {/* Description */}
-              <p className="text-sm text-gray-600 leading-relaxed mb-4">{selectedProject.fullDesc}</p>
+              <p className="text-sm text-zinc-400 leading-relaxed mb-4">{selectedProject.fullDesc || selectedProject.desc}</p>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-5">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {selectedProject.tags.map((tag, i) => (
-                  <span key={i} className="text-xs font-medium text-gray-600 bg-gray-100 border border-gray-200 px-3 py-1 rounded-full">
+                  <span key={i} className="text-xs font-mono text-amber-400 bg-amber-400/10 border border-amber-400/20 px-3 py-1 rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -258,7 +290,7 @@ function Project() {
               <div className="flex gap-2">
                 <button
                   onClick={closeModal}
-                  className="flex-1 bg-gray-900 hover:bg-gray-700 text-white text-sm font-medium px-4 py-2.5 rounded-xl transition-colors active:scale-95"
+                  className="flex-1 bg-white hover:bg-zinc-100 text-zinc-900 text-sm font-bold px-4 py-2.5 rounded-xl transition-colors active:scale-95 tracking-wide"
                 >
                   Tutup
                 </button>

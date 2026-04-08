@@ -1,4 +1,3 @@
-import About from "../components/About"
 import Hero from "../components/Hero"
 import Navbar from "../components/Navbar"
 import Projects from "../components/Project"
@@ -9,7 +8,6 @@ function Home() {
     <div className="w-full min-h-screen bg-white">
       <Navbar />
       <Hero />
-      <About />
       <Projects />
       <Contact />
     </div>
