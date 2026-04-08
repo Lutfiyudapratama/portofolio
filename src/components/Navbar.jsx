@@ -10,7 +10,6 @@ function Navbar() {
           --hijau: #4a6741;
           --krem: #faf7f0;
           --coklat-muda: #8b5e3c;
-          --krem-gelap: #f0e9d8;
         }
 
         .nav-jawa {
@@ -20,6 +19,7 @@ function Navbar() {
           top: 0;
           z-index: 50;
         }
+
         .nav-jawa::before {
           content: '';
           display: block;
@@ -28,62 +28,68 @@ function Navbar() {
             90deg,
             var(--sogan) 0px, var(--sogan) 10px,
             var(--emas) 10px, var(--emas) 18px,
-            var(--hijau) 18px, var(--hijau) 28px,
-            var(--emas) 28px, var(--emas) 36px
+            var(--hijau) 18px, var(--hijau) 28px
           );
         }
+
         .logo-jawa {
-          font-family: 'Playfair Display', Georgia, serif;
+          font-family: 'Playfair Display', serif;
           font-style: italic;
           color: var(--sogan);
-          font-size: 1.25rem;
-          letter-spacing: 0.03em;
+          font-size: 1.3rem;
         }
-        .ornamen-kecil {
-          color: var(--emas);
-          font-size: 0.85rem;
-          user-select: none;
-        }
+
         .nav-link-jawa {
-          font-family: 'Crimson Text', Georgia, serif;
-          font-size: 0.95rem;
-          letter-spacing: 0.14em;
-          color: var(--sogan);
+          font-family: 'Crimson Text', serif;
+          letter-spacing: .15em;
           text-transform: uppercase;
+          color: var(--sogan);
+          font-size: .9rem;
           padding: 6px 14px;
           position: relative;
-          transition: color 0.2s;
-          text-decoration: none;
-          display: inline-block;
         }
+
         .nav-link-jawa::after {
-          content: '';
-          position: absolute;
-          bottom: 2px;
-          left: 14px;
-          right: 14px;
-          height: 1px;
-          background: var(--emas);
-          transform: scaleX(0);
-          transition: transform 0.25s ease;
-          transform-origin: center;
+          content:'';
+          position:absolute;
+          bottom:2px;
+          left:14px;
+          right:14px;
+          height:1px;
+          background:var(--emas);
+          transform:scaleX(0);
+          transition:.25s;
         }
-        .nav-link-jawa:hover { color: var(--coklat-muda); }
-        .nav-link-jawa:hover::after { transform: scaleX(1); }
+
+        .nav-link-jawa:hover::after{
+          transform:scaleX(1);
+        }
+
       `}</style>
 
       <nav className="nav-jawa w-full">
-        <div className="max-w-6xl mx-auto px-8 py-4 flex justify-between items-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex justify-between items-center">
+
           <div className="flex items-center gap-2">
-            <span className="ornamen-kecil">❧</span>
+            <span className="text-[var(--emas)]">❧</span>
             <span className="logo-jawa">MyPortfolio</span>
-            <span className="ornamen-kecil">❧</span>
+            <span className="text-[var(--emas)]">❧</span>
           </div>
-          <ul className="flex items-center gap-1 list-none">
+
+          <ul className="hidden md:flex items-center gap-2">
             <li><a href="#projects" className="nav-link-jawa">Projects</a></li>
-            <span className="ornamen-kecil mx-1">·</span>
             <li><a href="#contact" className="nav-link-jawa">Contact</a></li>
           </ul>
+
+          {/* mobile menu icon */}
+          <button className="md:hidden text-[var(--sogan)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+
         </div>
       </nav>
     </>
