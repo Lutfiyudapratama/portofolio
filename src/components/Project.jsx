@@ -38,7 +38,7 @@ function Project() {
     },
     {
       title: "Website Expose FC",
-      desc: "Pengembangan fitur merchandise untuk website Expose FC, dengan fitur menampilkan produk, keranjang, dan checkout.",
+      desc: "Pengembangan fitur merchandise untuk website Expose FC, dengan fitur menampilkan produk, dan checkout.",
       tags: ["laravel", "bootstrap", "mysql"],
       images: [pictureex1, pictureex2, pictureex3, pictureex4, pictureex5, pictureex6],
       year: "2025",
