@@ -28,9 +28,9 @@ Halo, Saya <br/>
 
 <div className="text-center">
 <img
-src={picture}
-className="w-36 h-36 sm:w-44 sm:h-44 lg:w-60 lg:h-60 object-cover rounded"
-alt="Lutfi"
+  src={picture}
+  className="rounded max-w-[120px] sm:max-w-[150px] lg:max-w-[180px] w-full h-auto"
+  alt="Lutfi"
 />
 
 <p className="text-xs mt-6 tracking-[0.15em] italic text-[#a07040]">
