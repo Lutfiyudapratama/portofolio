@@ -22,7 +22,6 @@ import picturef5 from '../assets/financeapp/f5.png'
 import picturef6 from '../assets/financeapp/f6.png'
 import picturef7 from '../assets/financeapp/f7.png'
 
-
 function Project() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -32,21 +31,21 @@ function Project() {
   const projects = [
     {
       title: "Website Toko Listrik",
-      desc: "Website ini di buatuntuk memudahkan pelanggan untuk memesan produk dari toko electronic",
+      desc: "Website ini dibuat untuk memudahkan pelanggan untuk memesan produk dari toko electronic.",
       tags: ["laravel", "bootstrap", "mysql"],
       images: [picturetl, picturet2, picturet3, picturet6, picturet5, picturet4, picturet9, picturet7, picturet8],
       year: "2025",
     },
     {
-      title: "Website Expose fc",
-      desc: "Pengembangan fitur mechandise untuk website ekspos fc, dengan fitur seperti menampilkan produk, menambahkan produk ke keranjang, dan melakukan checkout.",
+      title: "Website Expose FC",
+      desc: "Pengembangan fitur merchandise untuk website Expose FC, dengan fitur menampilkan produk, keranjang, dan checkout.",
       tags: ["laravel", "bootstrap", "mysql"],
       images: [pictureex1, pictureex2, pictureex3, pictureex4, pictureex5, pictureex6],
       year: "2025",
     },
     {
       title: "Website Catatan Keuangan",
-      desc: "Website catatan keuangan ini dibuat untuk membantu pengguna dalam mengelola keuangan pribadi mereka dengan fitur seperti pencatatan pemasukan dan pengeluaran, serta visualisasi data keuangan.",
+      desc: "Website catatan keuangan untuk membantu pengguna mengelola keuangan pribadi dengan visualisasi data.",
       tags: ["laravel", "tailwind css", "mysql"],
       images: [picturef1, picturef2, picturef3, picturef4, picturef6, picturef5, picturef7],
       year: "2024",
@@ -120,45 +119,48 @@ function Project() {
         </h2>
         <p className="text-zinc-500 text-sm mb-12">Klik project untuk melihat detail & screenshot</p>
 
-        {/* Project list */}
-        <div className="flex flex-col gap-px border border-zinc-700/50 rounded-2xl overflow-hidden max-w-3xl bg-zinc-700/20">
+        {/* Project grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-zinc-700/40 border border-zinc-700/50 rounded-2xl overflow-hidden">
           {projects.map((project, index) => (
             <div
               key={index}
               onClick={() => openModal(project)}
-              className="group flex justify-between items-start gap-6 bg-zinc-900 hover:bg-zinc-800 px-6 py-6 transition-all duration-200 cursor-pointer border-b border-zinc-800 last:border-b-0"
+              className="group bg-zinc-900 hover:bg-zinc-800 p-6 cursor-pointer transition-all duration-200 flex flex-col gap-4"
             >
-              {/* Number + info */}
-              <div className="flex items-start gap-5 flex-1 min-w-0">
-                <span className="text-xs font-mono text-zinc-600 group-hover:text-amber-400 transition-colors pt-0.5 flex-shrink-0">
+              {/* Top row */}
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono text-zinc-600 group-hover:text-amber-400 transition-colors">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <div className="min-w-0">
-                  <div className="flex items-center gap-3 mb-1.5">
-                    <h3 className="text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors">
-                      {project.title}
-                    </h3>
-                    <span className="text-xs text-zinc-600 font-mono">{project.year}</span>
-                  </div>
-                  <p className="text-sm text-zinc-500 leading-relaxed line-clamp-2">{project.desc}</p>
-                </div>
+                <span className="text-xs font-mono text-zinc-600">{project.year}</span>
               </div>
 
-              {/* Tags + arrow */}
-              <div className="flex flex-col items-end gap-3 flex-shrink-0">
-                <div className="flex gap-1.5 flex-wrap justify-end">
-                  {project.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="text-xs text-zinc-400 bg-zinc-800 group-hover:bg-zinc-700 border border-zinc-700 px-2.5 py-0.5 rounded-full transition-colors font-mono"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <span className="text-zinc-600 group-hover:text-amber-400 group-hover:translate-x-1 transition-all duration-200 text-sm">
-                  →
-                </span>
+              {/* Title */}
+              <h3 className="text-sm font-bold text-zinc-100 group-hover:text-white transition-colors leading-snug">
+                {project.title}
+              </h3>
+
+              {/* Desc */}
+              <p className="text-sm text-zinc-500 leading-relaxed line-clamp-3 flex-1">
+                {project.desc}
+              </p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-1.5">
+                {project.tags.map((tag, i) => (
+                  <span
+                    key={i}
+                    className="text-xs font-mono text-zinc-400 bg-zinc-800 group-hover:bg-zinc-700 border border-zinc-700 px-2.5 py-0.5 rounded-full transition-colors"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Bottom row */}
+              <div className="flex items-center justify-between">
+                <div className="w-2 h-2 rounded-full bg-zinc-700 group-hover:bg-amber-400 transition-colors" />
+                <span className="text-zinc-600 group-hover:text-amber-400 group-hover:translate-x-1 transition-all duration-200 text-sm">→</span>
               </div>
             </div>
           ))}
@@ -180,7 +182,7 @@ function Project() {
             onClick={(e) => e.stopPropagation()}
           >
 
-            {/* ── Image Carousel ── */}
+            {/* Image Carousel */}
             <div className="relative w-full aspect-video bg-zinc-950 flex-shrink-0 overflow-hidden">
               <img
                 key={currentImageIndex}
@@ -232,7 +234,7 @@ function Project() {
               )}
             </div>
 
-            {/* ── Dot indicators ── */}
+            {/* Dot indicators */}
             {selectedProject.images.length > 1 && (
               <div className="flex justify-center gap-1.5 pt-3 pb-0 px-6">
                 {selectedProject.images.map((_, i) => (
@@ -249,9 +251,8 @@ function Project() {
               </div>
             )}
 
-            {/* ── Content ── */}
+            {/* Content */}
             <div className="px-6 pt-4 pb-6 overflow-y-auto">
-              {/* Header row */}
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div>
                   <h3
@@ -274,10 +275,8 @@ function Project() {
 
               <div className="border-t border-zinc-800 mb-4" />
 
-              {/* Description */}
               <p className="text-sm text-zinc-400 leading-relaxed mb-4">{selectedProject.fullDesc || selectedProject.desc}</p>
 
-              {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {selectedProject.tags.map((tag, i) => (
                   <span key={i} className="text-xs font-mono text-amber-400 bg-amber-400/10 border border-amber-400/20 px-3 py-1 rounded-full">
@@ -286,7 +285,6 @@ function Project() {
                 ))}
               </div>
 
-              {/* Actions */}
               <div className="flex gap-2">
                 <button
                   onClick={closeModal}

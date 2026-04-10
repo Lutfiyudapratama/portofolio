@@ -5,7 +5,7 @@ import Contact from "../components/Contact"
 
 function Home() {
   return (
-    <div className="w-full min-h-screen bg-white overflow-x-hidden"> 
+    <div className="w-full min-h-screen bg-white overflow-x-hidden fade-out"> 
       <Navbar />
       <Hero />
       <Projects />

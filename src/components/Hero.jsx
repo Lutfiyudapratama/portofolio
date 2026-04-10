@@ -1,11 +1,19 @@
 import picture from '../assets/lutfi.jpg'
+import { useState, useEffect } from 'react'
 
 function Hero() {
+
+const [show, setShow] = useState(false)
+
+useEffect(() => {
+  setShow(true)
+}, [])
+
   return (
     <>
-<section className="w-full bg-[#faf7f0]">
+<section className={`transition-opacity duration-1000 ${show ? "opacity-100" : "opacity-0"}`}>
 
-<div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+<div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24 ">
 
 <p className="text-xs uppercase tracking-[0.3em] text-[#4a6741] mb-8">
 Frontend · UI/UX Designer
