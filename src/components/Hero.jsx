@@ -106,6 +106,11 @@ function Hero() {
                 Saya adalah seorang siswa tingkat akhir yang memiliki minat besar dalam pengembangan web,
                 terutama dalam pengembangan <span className="font-semibold italic text-[#5c3d1e]">frontend dan UI/UX</span>.
               </p>
+              <p className="text-base sm:text-lg leading-relaxed text-[#6b4c2a] mt-4">
+                Saya memiliki pengalaman dalam menggunakan berbagai teknologi frontend seperti
+                <span className="font-semibold italic text-[#5c3d1e]"> HTML, CSS, JavaScript, React</span>,
+                dan <span className="font-semibold italic text-[#5c3d1e]">Tailwind CSS</span>.
+              </p>
             </div>
           </div>
 
